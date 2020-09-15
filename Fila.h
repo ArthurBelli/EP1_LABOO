@@ -2,9 +2,10 @@
 #define FILA_H
 #include "Datagrama.h"
 
-class Fila(int tamanho) {
+class Fila {
 private:
-    //incluir
+    int inicio, fim, tamanho;
+    Datagrama **vetFila;
 public:
     Fila(int tamanho);
     ~Fila();
