@@ -2,6 +2,8 @@
 #define FILA_H
 #include "Datagrama.h"
 
+using namespace std;
+
 class Fila {
 private:
     int inicio, fim, tamanho;
@@ -14,6 +16,6 @@ public:
     bool isEmpty();
 
     void imprimir();
-}
+};
 
 #endif // FILA_H

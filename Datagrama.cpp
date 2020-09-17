@@ -1,6 +1,6 @@
 #include "Datagrama.h"
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 Datagrama::Datagrama(int origem, int destino, int ttl, string dado) {
@@ -15,32 +15,31 @@ Datagrama::~Datagrama() {
     cout << "Datagrama destruido" << endl;
 }
 
-Datagrama::int getOrigem() {
+int Datagrama::getOrigem() {
     return origem;
 }
 
-Datagrama::int getDestino() {
+int Datagrama::getDestino() {
     return destino;
 }
 
-Datagrama::int getTtl() {
+int Datagrama::getTtl() {
     return ttl;
 }
 
-Datagrama::string getDado() {
+string Datagrama::getDado() {
     return dado;
 }
 
-Datagrama::void processar() {
+void Datagrama::processar() {
     ttl--;
-    return ttl;
 }
 
-Datagrama::bool ativo() {
+bool Datagrama::ativo() {
     if (ttl>0) return true;
     return false;
 }
 
-Datagrama::void imprimir() {
+void Datagrama::imprimir() {
     cout << ttl << endl;
 }

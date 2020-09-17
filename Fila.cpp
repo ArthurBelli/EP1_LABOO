@@ -1,11 +1,12 @@
 #include "Fila.h"
 #include "Datagrama.h"
+using namespace std;
 
 Fila::Fila(int tamanho) {
     this->tamanho = tamanho;
     inicio = 0;
-    fim = 0;   
-    Datagrama **vetFila = new Datagrama*[tamanho+1]; //fila circular com uma posicao a mais que o permitido
+    fim = 0;
+    vetFila = new Datagrama*[tamanho+1]; //fila circular com uma posicao a mais que o permitido
 }
 
 Fila::~Fila() {
