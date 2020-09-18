@@ -7,21 +7,20 @@
 class Roteador;
 
 class TabelaDeRepasse {
-    private:
+private:
     Roteador** vetRot; //vetor de roteadores
     int* vetEnd; //vetor de endereços
     Roteador* rotPadrao;
-    public:
-        TabelaDeRepasse();
-        ~TabelaDeRepasse();
-        bool mapear(int endereco, Roteador* adjacente);
-        Roteador** getAdjacentes();
-        int getQuantidadeDeAdjacentes();
-        void setPadrao(Roteador* padrao);
-        Roteador* getDestino(int endereco);
+public:
+    TabelaDeRepasse();
+    ~TabelaDeRepasse();
+    bool mapear(int endereco, Roteador* adjacente);
+    Roteador** getAdjacentes();
+    int getQuantidadeDeAdjacentes();
+    void setPadrao(Roteador* padrao);
+    Roteador* getDestino(int endereco);
 
-        void imprimir();
-
+    void imprimir();
 };
 
 #endif // TABELADEREPASSE_H

@@ -3,13 +3,14 @@
 #include <string>
 
 using namespace std;
+
 class Datagrama {
 private:
-    int origem;
-    int destino;
-    int ttl;
-    string dado;
-    //incluir se faltar alguma coisa
+    int *origem = new int;
+    int *destino = new int;
+    int *ttl = new int;
+    string *dado = new string;
+    //incluir se julgar faltar alguma coisa
 public:
     Datagrama(int origem, int destino, int ttl, string dado);
     ~Datagrama();

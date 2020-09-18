@@ -10,7 +10,10 @@ class TabelaDeRepasse;
 
 class Roteador {
 private:
-
+    int endereco;
+    Fila* fila;
+    string ultimoDadoRecebido;
+    TabelaDeRepasse* tabela;
 public:
     Roteador(int endereco);
     ~Roteador();
