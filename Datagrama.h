@@ -10,7 +10,6 @@ private:
     int *destino = new int;
     int *ttl = new int;
     string *dado = new string;
-    //incluir se julgar faltar alguma coisa
 public:
     Datagrama(int origem, int destino, int ttl, string dado);
     ~Datagrama();

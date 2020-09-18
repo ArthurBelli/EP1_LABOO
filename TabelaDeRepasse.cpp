@@ -10,11 +10,10 @@ TabelaDeRepasse::TabelaDeRepasse() {
     vetRot = new Roteador*[MAXIMO_TABELA];
     vetEnd = new int[MAXIMO_TABELA];
     rotPadrao = NULL;
-    int i;
-    for (i = 0; i < MAXIMO_TABELA; i++) {
+    for (int i = 0; i < MAXIMO_TABELA; i++) {
         vetRot[i] = NULL;
         vetEnd[i] = 0;
-    } // vetores ao serem criados ficam [NULL, NULL, NULL, ...] e [0,0,0,..]
+    } // vetores ao serem criados ficam [NULL, NULL, NULL, ...] e [0,0,0,..] respectivamente
 }
 
 TabelaDeRepasse::~TabelaDeRepasse() {
@@ -42,19 +41,16 @@ bool TabelaDeRepasse::mapear(int endereco, Roteador* adjacente) {
 }
 
 Roteador** TabelaDeRepasse::getAdjacentes() {
-    //falta alguma coisa aqui?
     Roteador** adjacentes;
-    int i;
     int quantAdj = this->getQuantidadeDeAdjacentes();
     adjacentes = new Roteador*[quantAdj];
-    for (i = 0; i < quantAdj; i++) adjacentes[i] = vetRot[i];
+    for (int i = 0; i < quantAdj; i++) adjacentes[i] = vetRot[i];
     return adjacentes;
 }
 
 int TabelaDeRepasse::getQuantidadeDeAdjacentes() {
-    int contOcupado,i; //contador de quantas casas ocupadas tem no vetor
-    contOcupado = 0;
-    for (i = 0; i < MAXIMO_TABELA; i++) {
+    int contOcupado = 0; //contador de quantas casas ocupadas tem no vetor
+    for (int i = 0; i < MAXIMO_TABELA; i++) {
         if (vetRot[i] != NULL) contOcupado++;
     }
     return contOcupado;

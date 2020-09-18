@@ -38,7 +38,7 @@ void Roteador::processar() {
     atual->processar();
     if(!fila->isEmpty()) {
         if(!atual->ativo()) atual->~Datagrama();
-        if(atual->getDestino() == endereco) {
+        else if(atual->getDestino() == endereco) {
             ultimoDadoRecebido = atual->getDado();
             atual->~Datagrama();
         } else {

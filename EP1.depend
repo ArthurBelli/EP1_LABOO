@@ -6,7 +6,7 @@
 1600346493 c:\users\arthur\documents\poli\ep1\fila.h
 	"Datagrama.h"
 
-1600393937 c:\users\arthur\documents\poli\ep1\datagrama.h
+1600424370 c:\users\arthur\documents\poli\ep1\datagrama.h
 	<string>
 
 1600220727 source:c:\users\arthur\documents\poli\ep1\main.cpp
@@ -26,21 +26,29 @@
 	"Datagrama.h"
 	"Fila.h"
 
-1600346493 c:\users\arthur\documents\poli\ep1\rede.h
+1600425694 c:\users\arthur\documents\poli\ep1\rede.h
 	"Roteador.h"
 
-1600129758 source:c:\users\arthur\documents\poli\ep1\rede.cpp
+1600425694 source:c:\users\arthur\documents\poli\ep1\rede.cpp
 	"Rede.h"
+	"Roteador.h"
+	<iostream>
+	<string>
 
-1600393981 source:c:\users\arthur\documents\poli\ep1\roteador.cpp
+1600424516 source:c:\users\arthur\documents\poli\ep1\roteador.cpp
 	"Fila.h"
 	"Roteador.h"
 	"Datagrama.h"
 	"TabelaDeRepasse.h"
 	<iostream>
 
-1600394024 source:c:\users\arthur\documents\poli\ep1\tabeladerepasse.cpp
+1600426677 source:c:\users\arthur\documents\poli\ep1\tabeladerepasse.cpp
 	"TabelaDeRepasse.h"
 	"Roteador.h"
 	<iostream>
+
+1600424382 source:c:\users\arthur\documents\poli\ep1\datagrama.cpp
+	"Datagrama.h"
+	<iostream>
+	<string>
 

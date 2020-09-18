@@ -12,7 +12,6 @@ Datagrama::Datagrama(int origem, int destino, int ttl, string dado) {
 }
 
 Datagrama::~Datagrama() {
-    //pra podermos deletar precisamos declarar no heap, olhar no Datagrama.h
     delete origem;
     delete destino;
     delete ttl;

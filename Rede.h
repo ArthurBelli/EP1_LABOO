@@ -5,7 +5,8 @@
 
 class Rede {
 private:
-
+    int quantidadeDeRoteadores;
+    Roteador** rot;
 public:
     Rede(Roteador** roteadores, int quantidadeDeRoteadores);
     ~Rede();
