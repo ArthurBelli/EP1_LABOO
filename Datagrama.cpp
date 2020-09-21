@@ -1,37 +1,48 @@
 #include "Datagrama.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 Datagrama::Datagrama(int origem, int destino, int ttl, string dado) {
-    //ctor
+    this->origem = origem;
+    this->destino = destino;
+    this->ttl = ttl;
+    this->dado = dado;
 }
 
 Datagrama::~Datagrama() {
-    //dtor
+    /*delete origem;
+    delete destino;
+    delete ttl;
+    delete dado;*/
+    cout << "Datagrama destruido" << endl;
 }
 
-Datagrama::int getOrigem() {
-    //implementar
+int Datagrama::getOrigem() {
+    return origem;
 }
 
-Datagrama::int getDestino() {
-    //implementar
+int Datagrama::getDestino() {
+    return destino;
 }
 
-Datagrama::int getTtl() {
-    //implementar
+int Datagrama::getTtl() {
+    return ttl;
 }
 
-Datagrama::string getDado() {
-    //implementar
+string Datagrama::getDado() {
+    return dado;
 }
 
-Datagrama::void processar() {
-    //implementar
+void Datagrama::processar() {
+    ttl--;
 }
 
-Datagrama::bool ativo() {
-    //implementar
+bool Datagrama::ativo() {
+    return (ttl > 0); //mais enxuto e igualmente valido
 }
 
-Datagrama::void imprimir() {
-    //implementar
+void Datagrama::imprimir() {
+    cout << ttl << endl;
 }

@@ -1,37 +1,58 @@
+#include "Fila.h"
 #include "Roteador.h"
 #include "Datagrama.h"
 #include "TabelaDeRepasse.h"
+#define TAMANHO_FILA 3
+#include <iostream>
+
 
 Roteador::Roteador(int endereco) {
-    //ctor
+   this->endereco = endereco;
+   fila = new Fila(TAMANHO_FILA);
+   tabela = new TabelaDeRepasse();
+   chegouDestino = false;
 }
 
 Roteador::~Roteador() {
-    //dtor
+    fila->~Fila();
+    tabela->~TabelaDeRepasse();
 }
 
 TabelaDeRepasse* Roteador::getTabela() {
-    //implementar
+    return tabela;
 }
 
 Fila* Roteador::getFila() {
-    //implementar
+    return fila;
 }
 
 int Roteador::getEndereco() {
-    //implementar
+    return endereco;
 }
 
 void Roteador::receber(Datagrama* d) {
-    //implementar
+    if (!fila->enqueue(d)) cout << "\tFila em " << endereco << " estourou" << endl;
 }
 
 void Roteador::processar() {
-    //implementar
+    if (!fila->isEmpty()) {
+        Datagrama *atual = fila->dequeue();
+        atual->processar();
+        if(!atual->ativo()) atual->~Datagrama();
+        else {
+            if(atual->getDestino() == endereco) {
+                ultimoDadoRecebido = atual->getDado();
+                chegouDestino = true;
+                atual->~Datagrama();
+            }
+            else tabela->getDestino(atual->getDestino())->receber(atual);
+        }
+    }
 }
 
 string Roteador::getUltimoDadoRecebido() {
-    //implementar
+    if(fila->isEmpty() && !chegouDestino) return "";
+    else return ultimoDadoRecebido;
 }
 
 void Roteador::imprimir() {

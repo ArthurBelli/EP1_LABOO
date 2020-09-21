@@ -1,0 +1,107 @@
+# depslib dependency file v1.0
+1600390255 source:c:\users\arthur\documents\poli\ep1\fila.cpp
+	"Fila.h"
+	"Datagrama.h"
+
+1600346493 c:\users\arthur\documents\poli\ep1\fila.h
+	"Datagrama.h"
+
+1600424370 c:\users\arthur\documents\poli\ep1\datagrama.h
+	<string>
+
+1600220727 source:c:\users\arthur\documents\poli\ep1\main.cpp
+	"Datagrama.h"
+	"Fila.h"
+	"TabelaDeRepasse.h"
+	"Roteador.h"
+	"Rede.h"
+	<iostream>
+	<string>
+
+1600356699 c:\users\arthur\documents\poli\ep1\tabeladerepasse.h
+	"Roteador.h"
+
+1600392480 c:\users\arthur\documents\poli\ep1\roteador.h
+	"TabelaDeRepasse.h"
+	"Datagrama.h"
+	"Fila.h"
+
+1600425694 c:\users\arthur\documents\poli\ep1\rede.h
+	"Roteador.h"
+
+1600425694 source:c:\users\arthur\documents\poli\ep1\rede.cpp
+	"Rede.h"
+	"Roteador.h"
+	<iostream>
+	<string>
+
+1600424516 source:c:\users\arthur\documents\poli\ep1\roteador.cpp
+	"Fila.h"
+	"Roteador.h"
+	"Datagrama.h"
+	"TabelaDeRepasse.h"
+	<iostream>
+
+1600426677 source:c:\users\arthur\documents\poli\ep1\tabeladerepasse.cpp
+	"TabelaDeRepasse.h"
+	"Roteador.h"
+	<iostream>
+
+1600424382 source:c:\users\arthur\documents\poli\ep1\datagrama.cpp
+	"Datagrama.h"
+	<iostream>
+	<string>
+
+1600697487 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\datagrama.cpp
+	"Datagrama.h"
+	<iostream>
+	<string>
+
+1600697478 c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\datagrama.h
+	<string>
+
+1600429614 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\fila.cpp
+	"Fila.h"
+	"Datagrama.h"
+
+1600429614 c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\fila.h
+	"Datagrama.h"
+
+1600649034 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\rede.cpp
+	"Rede.h"
+	"Roteador.h"
+	<iostream>
+	<string>
+
+1600429614 c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\rede.h
+	"Roteador.h"
+
+1600698130 c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\roteador.h
+	"TabelaDeRepasse.h"
+	"Datagrama.h"
+	"Fila.h"
+
+1600429614 c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\tabeladerepasse.h
+	"Roteador.h"
+
+1600697380 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\roteador.cpp
+	"Fila.h"
+	"Roteador.h"
+	"Datagrama.h"
+	"TabelaDeRepasse.h"
+	<iostream>
+
+1600696826 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\tabeladerepasse.cpp
+	"TabelaDeRepasse.h"
+	"Roteador.h"
+	<iostream>
+
+1600698860 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-classes-feitas\ep1_laboo-classes\main.cpp
+	"Datagrama.h"
+	"Fila.h"
+	"TabelaDeRepasse.h"
+	"Roteador.h"
+	"Rede.h"
+	<iostream>
+	<string>
+

@@ -2,9 +2,15 @@
 #define TABELADEREPASSE_H
 #include "Roteador.h"
 
-
 #define MAXIMO_TABELA 5
-class TabelaDeRepasse(){
+
+class Roteador;
+
+class TabelaDeRepasse {
+private:
+    Roteador** vetRot; //vetor de roteadores
+    int* vetEnd; //vetor de endereços
+    Roteador* rotPadrao;
 public:
     TabelaDeRepasse();
     ~TabelaDeRepasse();
@@ -15,7 +21,6 @@ public:
     Roteador* getDestino(int endereco);
 
     void imprimir();
-
 };
 
 #endif // TABELADEREPASSE_H
