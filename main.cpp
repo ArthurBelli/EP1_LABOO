@@ -81,6 +81,10 @@ int main() {
                 cout << endl;
             }
         }
+        else if (opcao != 3) {
+            cout << "Opcao invalida" << endl;
+            opcao = 0;
+        }
         MenuFim(opcao);
     }
     return 0;
@@ -110,9 +114,6 @@ void Menu2(int &tempo) {
 }
 
 void MenuFim(int &opcao) {
-    if(opcao != 3) {
-        cout << "Opcao invalida" << endl;
-        opcao = 0;
-    }
+    if(opcao != 3) opcao = 0;
     cout << endl;
 }
