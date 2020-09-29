@@ -1,15 +1,15 @@
 # depslib dependency file v1.0
-1600685168 source:c:\users\arthur\documents\poli\ep1\fila.cpp
+1601389040 source:c:\users\arthur\documents\poli\ep1\fila.cpp
 	"Fila.h"
 	"Datagrama.h"
 
-1600685168 c:\users\arthur\documents\poli\ep1\fila.h
+1601389040 c:\users\arthur\documents\poli\ep1\fila.h
 	"Datagrama.h"
 
-1601348844 c:\users\arthur\documents\poli\ep1\datagrama.h
+1601389040 c:\users\arthur\documents\poli\ep1\datagrama.h
 	<string>
 
-1601341380 source:c:\users\arthur\documents\poli\ep1\main.cpp
+1601389040 source:c:\users\arthur\documents\poli\ep1\main.cpp
 	"Datagrama.h"
 	"Fila.h"
 	"TabelaDeRepasse.h"
@@ -18,36 +18,36 @@
 	<iostream>
 	<string>
 
-1600685168 c:\users\arthur\documents\poli\ep1\tabeladerepasse.h
+1601389040 c:\users\arthur\documents\poli\ep1\tabeladerepasse.h
 	"Roteador.h"
 
-1600685168 c:\users\arthur\documents\poli\ep1\roteador.h
+1601389040 c:\users\arthur\documents\poli\ep1\roteador.h
 	"TabelaDeRepasse.h"
 	"Datagrama.h"
 	"Fila.h"
 
-1600685168 c:\users\arthur\documents\poli\ep1\rede.h
+1601389040 c:\users\arthur\documents\poli\ep1\rede.h
 	"Roteador.h"
 
-1600685168 source:c:\users\arthur\documents\poli\ep1\rede.cpp
+1601389040 source:c:\users\arthur\documents\poli\ep1\rede.cpp
 	"Rede.h"
 	"Roteador.h"
 	<iostream>
 	<string>
 
-1601341735 source:c:\users\arthur\documents\poli\ep1\roteador.cpp
+1601389040 source:c:\users\arthur\documents\poli\ep1\roteador.cpp
 	"Fila.h"
 	"Roteador.h"
 	"Datagrama.h"
 	"TabelaDeRepasse.h"
 	<iostream>
 
-1601340987 source:c:\users\arthur\documents\poli\ep1\tabeladerepasse.cpp
+1601389040 source:c:\users\arthur\documents\poli\ep1\tabeladerepasse.cpp
 	"TabelaDeRepasse.h"
 	"Roteador.h"
 	<iostream>
 
-1601341577 source:c:\users\arthur\documents\poli\ep1\datagrama.cpp
+1601389040 source:c:\users\arthur\documents\poli\ep1\datagrama.cpp
 	"Datagrama.h"
 	<iostream>
 	<string>

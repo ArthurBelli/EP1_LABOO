@@ -80,10 +80,8 @@ int main() {
                 rede->passarTempo();
                 cout << endl;
             }
-        }
-        else if (opcao != 3) {
+        } else if (opcao != 3) {
             cout << "Opcao invalida" << endl;
-            opcao = 0;
         }
         MenuFim(opcao);
     }
@@ -91,7 +89,7 @@ int main() {
 }
 
 void Menu0(int &opcao) {
-    cout << "Simulador de Rede" << endl << "---" << endl << "1) Enviar um datagrama" << endl 
+    cout << "Simulador de Rede" << endl << "---" << endl << "1) Enviar um datagrama" << endl
     << "2) Passar tempo" << endl << "3) Sair" << endl << "Esolha uma opcao: ";
     cin >> opcao;
 }
