@@ -149,3 +149,56 @@
 	"Roteador.h"
 	<iostream>
 
+1601378489 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\datagrama.cpp
+	"Datagrama.h"
+	<iostream>
+	<string>
+
+1601378489 c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\datagrama.h
+	<string>
+
+1601378489 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\fila.cpp
+	"Fila.h"
+	"Datagrama.h"
+
+1601378489 c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\fila.h
+	"Datagrama.h"
+
+1601378489 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\rede.cpp
+	"Rede.h"
+	"Roteador.h"
+	<iostream>
+	<string>
+
+1601378489 c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\rede.h
+	"Roteador.h"
+
+1601378489 c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\roteador.h
+	"TabelaDeRepasse.h"
+	"Datagrama.h"
+	"Fila.h"
+
+1601378489 c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\tabeladerepasse.h
+	"Roteador.h"
+
+1601401206 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\roteador.cpp
+	"Fila.h"
+	"Roteador.h"
+	"Datagrama.h"
+	"TabelaDeRepasse.h"
+	<iostream>
+
+1601378489 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\tabeladerepasse.cpp
+	"TabelaDeRepasse.h"
+	"Roteador.h"
+	<iostream>
+
+1601401070 source:c:\users\caiok\documents\codigos\c++\ep1\ep1_laboo-master\ep1_laboo-quase-feito\main.cpp
+	"Datagrama.h"
+	"Fila.h"
+	"TabelaDeRepasse.h"
+	"Roteador.h"
+	"Rede.h"
+	<iostream>
+	<string>
+

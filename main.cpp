@@ -77,7 +77,7 @@ int main() {
             for (int i = 1; i <= tempo; i++) {
                 cout << "Instante " << i << endl;
                 cout << "---" << endl;
-                for (int i = 0; i < QUANTIDADE_DE_ROTEADORES; i++) rede->passarTempo();
+                rede->passarTempo();
                 cout << endl;
             }
         }
@@ -110,6 +110,6 @@ void Menu2(int &tempo) {
 }
 
 void MenuFim(int &opcao) {
-    opcao = 0;
+    if(opcao != 3) opcao = 0;
     cout << endl;
 }

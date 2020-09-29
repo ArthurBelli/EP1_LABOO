@@ -41,7 +41,7 @@ void Roteador::processar() {
         atual->processar();
         cout << "Roteador " << this->getEndereco() << endl;
         if(!atual->ativo()) {
-            cout << "\tDestruido por TTL: Origem: " << atual->getOrigem() << ", Destino" << atual->getDestino()
+            cout << "\tDestruido por TTL: Origem: " << atual->getOrigem() << ", Destino: " << atual->getDestino()
             << ", TTL: " << atual->getTtl()  << ", " << atual->getDado() << endl;
             delete atual;
         }
@@ -54,7 +54,7 @@ void Roteador::processar() {
             }
             else {
                 cout << "\tEnviado para " << tabela->getDestino(atual->getDestino())->getEndereco() << " Origem: " << atual->getOrigem()
-                << ", Destino" << atual->getDestino() << ", TTL: " << atual->getTtl() << ", " << atual->getDado() << endl;
+                << ", Destino: " << atual->getDestino() << ", TTL: " << atual->getTtl() << ", " << atual->getDado() << endl;
                 tabela->getDestino(atual->getDestino())->receber(atual);
             }
         }
