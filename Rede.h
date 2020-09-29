@@ -3,9 +3,10 @@
 #include "Roteador.h"
 
 
-class Rede(Roteador** roteadores, int quantidadeDeRoteadores) {
+class Rede {
 private:
-
+    int quantidadeDeRoteadores;
+    Roteador** rot;
 public:
     Rede(Roteador** roteadores, int quantidadeDeRoteadores);
     ~Rede();
