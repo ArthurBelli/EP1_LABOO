@@ -14,7 +14,6 @@ void Menu0(int &opcao);
 void Menu1(int &origem, int &destino, int &ttl, string &mensagem);
 void Menu2(int &tempo);
 void MenuFim(int &opcao);
-void mensagensRoteadores(Roteador** vetRot);
 
 int main() {
     /*setup da rede, dos roteadores e da tabela*/
@@ -72,7 +71,6 @@ int main() {
             if (rede->getRoteador(origem) == NULL) {
                 cout << "Erro: origem desconhecida" << endl;
             } else rede->enviar(mensagem, vetRot[origem-1], destino, ttl);
-            MenuFim(opcao);
         } else if (opcao == 2) {
             int tempo;
             Menu2(tempo);
@@ -82,18 +80,15 @@ int main() {
                 for (int i = 0; i < QUANTIDADE_DE_ROTEADORES; i++) rede->passarTempo();
                 cout << endl;
             }
-            MenuFim(opcao);
         }
+        MenuFim(opcao);
     }
     return 0;
 }
 
 void Menu0(int &opcao) {
-    cout << "Simulador de Rede" << endl;
-    cout << "---" << endl;
-    cout << "1) Enviar um datagrama" << endl;
-    cout << "2) Passar tempo" << endl;
-    cout << "3) Sair" << endl << "Esolha uma opcao: ";
+    cout << "Simulador de Rede" << endl << "---" << endl << "1) Enviar um datagrama" << endl 
+    << "2) Passar tempo" << endl << "3) Sair" << endl << "Esolha uma opcao: ";
     cin >> opcao;
 }
 
@@ -117,10 +112,4 @@ void Menu2(int &tempo) {
 void MenuFim(int &opcao) {
     opcao = 0;
     cout << endl;
-}
-void mensagensRoteadores(Roteador** vetRot) { //funcao de teste, pode apagar se quiser
-    int i;
-    for (i = 0; i<QUANTIDADE_DE_ROTEADORES; i++) {
-        cout << "Roteador " << i+1 << ": " << vetRot[i]->getUltimoDadoRecebido() << endl;
-    }
 }
