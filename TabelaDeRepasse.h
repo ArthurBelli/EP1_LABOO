@@ -1,30 +1,26 @@
 #ifndef TABELADEREPASSE_H
 #define TABELADEREPASSE_H
-#include "No.h"
-#include <iostream>
-#include <stdexcept>
+#include "Roteador.h"
 
-using namespace std;
+#define MAXIMO_TABELA 5
 
-class TabelaDeRepasse
-{
- public:
-    TabelaDeRepasse();
-    virtual ~TabelaDeRepasse();
+class Roteador;
 
-    virtual void mapear(int endereco, No* adjacente);
-    virtual No** getAdjacentes();
-    virtual int getQuantidadeDeAdjacentes();
-    virtual void setPadrao(No* padrao);
-    virtual No* getDestino(int endereco);
-
-    virtual void imprimir();
-    static const int MAXIMO_TABELA;
-
+class TabelaDeRepasse {
 private:
-    No** vetNo; //vetor de nos
+    Roteador** vetRot; //vetor de roteadores
     int* vetEnd; //vetor de endereços
-    No* noPadrao;
+    Roteador* rotPadrao;
+public:
+    TabelaDeRepasse();
+    ~TabelaDeRepasse();
+    bool mapear(int endereco, Roteador* adjacente);
+    Roteador** getAdjacentes();
+    int getQuantidadeDeAdjacentes();
+    void setPadrao(Roteador* padrao);
+    Roteador* getDestino(int endereco);
+
+    void imprimir();
 };
 
 #endif // TABELADEREPASSE_H

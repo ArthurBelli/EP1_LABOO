@@ -1,6 +1,10 @@
 #include "Datagrama.h"
+#include <iostream>
+#include <string>
 
-Datagrama::Datagrama(int origem, int destino, int ttl, Segmento* dado) {
+using namespace std;
+
+Datagrama::Datagrama(int origem, int destino, int ttl, string dado) {
     this->origem = origem;
     this->destino = destino;
     this->ttl = ttl;
@@ -8,7 +12,6 @@ Datagrama::Datagrama(int origem, int destino, int ttl, Segmento* dado) {
 }
 
 Datagrama::~Datagrama() {
-    delete dado;
 }
 
 int Datagrama::getOrigem() {
@@ -23,7 +26,7 @@ int Datagrama::getTtl() {
     return ttl;
 }
 
-Segmento* Datagrama::getDado() {
+string Datagrama::getDado() {
     return dado;
 }
 
@@ -36,7 +39,5 @@ bool Datagrama::ativo() {
 }
 
 void Datagrama::imprimir() {
-    cout << "Origem: " << this->getOrigem() << ":" << this->getDado()->getPortaDeOrigem()
-    <<", Destino: " << this->getDestino() << ":" << this->getDado()->getPortaDeDestino()
-    << ", TTL: " << this->getTtl()  << ", " << this->getDado()->getDado() << endl;
+    cout << ttl << endl;
 }

@@ -1,73 +1,83 @@
 #include "TabelaDeRepasse.h"
+#include "Roteador.h"
+#define MAXIMO_TABELA 5
+#include <iostream>
 
-const int TabelaDeRepasse::MAXIMO_TABELA = 5;
+using namespace std;
+class Roteador;
 
 TabelaDeRepasse::TabelaDeRepasse() {
-    vetNo = new No*[TabelaDeRepasse::MAXIMO_TABELA];
-    vetEnd = new int[TabelaDeRepasse::MAXIMO_TABELA];
-    noPadrao = NULL;
-    for (int i = 0; i < TabelaDeRepasse::MAXIMO_TABELA; i++) {
-        vetNo[i] = NULL;
+    vetRot = new Roteador*[MAXIMO_TABELA];
+    vetEnd = new int[MAXIMO_TABELA];
+    rotPadrao = NULL;
+    for (int i = 0; i < MAXIMO_TABELA; i++) {
+        vetRot[i] = NULL;
         vetEnd[i] = 0;
-    }
+    } // vetores ao serem criados ficam [NULL, NULL, NULL, ...] e [0,0,0,..] respectivamente
 }
 
 TabelaDeRepasse::~TabelaDeRepasse() {
-    delete[] vetNo;
+    delete[] vetRot;
     delete[] vetEnd;
 }
 
-void TabelaDeRepasse::mapear(int endereco, No* adjacente) {
+bool TabelaDeRepasse::mapear(int endereco, Roteador* adjacente) {
     int i = 0;
-    while (vetNo[i] != NULL && vetEnd[i] != 0) {
+    while (vetRot[i] != NULL && vetEnd[i] != 0) {
         i++;
-        if (vetNo[i] == adjacente) { //substitui vetor que ja esta na tabela
-            vetEnd[i] = endereco;
-            return;
+        if (i == MAXIMO_TABELA) {
+            cout << "Erro no mapeamento: tabela cheia" << endl;
+            return false;
         }
-        if (i == TabelaDeRepasse::MAXIMO_TABELA) throw overflow_error("Erro: Tabela cheia");
     }
-    if ((vetNo[i] == NULL && vetEnd[i] != 0) || (vetNo[i] != NULL && vetEnd[i] == 0))
-        throw logic_error("Erro no mapeamento: vetores desalinhados"); //talvez out_of_range, talvez apagar
-    vetNo[i] = adjacente;
-    vetEnd[i] = endereco;
+    if ((vetRot[i] == NULL && vetEnd[i] != 0) || (vetRot[i] != NULL && vetEnd[i] == 0)) {
+        cout << "Erro no mapeamento: vetores desalinhados" << endl;
+        return false;
+    } else {
+        vetRot[i] = adjacente;
+        vetEnd[i] = endereco;
+        return true;
+    }
 }
 
-No** TabelaDeRepasse::getAdjacentes() {
-    No** adjacentes;
+Roteador** TabelaDeRepasse::getAdjacentes() {
+    Roteador** adjacentes;
     int quantAdj = this->getQuantidadeDeAdjacentes();
-    adjacentes = new No*[quantAdj];
-    for (int i = 0; i < quantAdj; i++) adjacentes[i] = vetNo[i];
+    adjacentes = new Roteador*[quantAdj];
+    for (int i = 0; i < quantAdj; i++) adjacentes[i] = vetRot[i];
     return adjacentes;
 }
 
 int TabelaDeRepasse::getQuantidadeDeAdjacentes() {
     int contOcupado = 0; //contador de quantas casas ocupadas tem no vetor
-    for (int i = 0; i < TabelaDeRepasse::MAXIMO_TABELA; i++) {
-        if (vetNo[i] != NULL) contOcupado++;
+    for (int i = 0; i < MAXIMO_TABELA; i++) {
+        if (vetRot[i] != NULL) contOcupado++;
     }
     return contOcupado;
 }
 
-void TabelaDeRepasse::setPadrao(No* padrao) {
-    noPadrao = padrao;
+void TabelaDeRepasse::setPadrao(Roteador* padrao) {
+    rotPadrao = padrao;
 }
 
-No* TabelaDeRepasse::getDestino(int endereco) {
+Roteador* TabelaDeRepasse::getDestino(int endereco) {
     int i;
     int k = -1;
-    for (i = 0; i < TabelaDeRepasse::MAXIMO_TABELA; i++) {
+    for (i = 0; i < MAXIMO_TABELA; i++) {
         if (endereco == vetEnd[i]) k = i;
     }
-    if (k != -1) return vetNo[k];
-    else return noPadrao;
+    if (k != -1) return vetRot[k];
+    else return rotPadrao;
 }
 
 void TabelaDeRepasse::imprimir() {
-    cout << "Os adjascentes sao: " << endl;
-    for (int i=0; i<this->getQuantidadeDeAdjacentes(); i++) {
-        cout << this->getAdjacentes()[i]->getEndereco() << endl;
-    }
-    cout << "O padrao e: " << endl;
-    cout << noPadrao->getEndereco() << endl;
+    Roteador** adjacentes = this->getAdjacentes();
+    int quantAdj,i;
+    quantAdj = this->getQuantidadeDeAdjacentes();
+    cout << "vetRot: {";
+    for (i=0; i<MAXIMO_TABELA; i++) cout << vetRot[i] <<", ";
+    cout << "}"<<endl;
+    cout << "vetEnd: {";
+    for (i=0; i<MAXIMO_TABELA; i++) cout << vetEnd[i] <<", ";
+    cout << "}"<< endl;
 }
