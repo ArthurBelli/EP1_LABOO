@@ -1,21 +1,23 @@
 #ifndef FILA_H
 #define FILA_H
 #include "Datagrama.h"
+#include <stdexcept>
 
 using namespace std;
 
 class Fila {
-private:
-    int inicio, fim, tamanho;
-    Datagrama **vetFila;
-public:
+ public:
     Fila(int tamanho);
-    ~Fila();
-    bool enqueue(Datagrama* d);
-    Datagrama* dequeue();
-    bool isEmpty();
+    virtual ~Fila();
 
-    void imprimir();
+    virtual void enqueue(Datagrama* d);
+    virtual Datagrama* dequeue();
+    virtual bool isEmpty();
+
+    virtual void imprimir();
+ private:
+    int inicio, fim, tamanho, quantidade;
+    Datagrama** vetFila;
 };
 
 #endif // FILA_H

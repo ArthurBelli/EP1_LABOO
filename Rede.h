@@ -1,20 +1,27 @@
 #ifndef REDE_H
 #define REDE_H
-#include "Roteador.h"
+#include <list>
+#include <stdexcept>
+#include "Hospedeiro.h"
+#include "No.h"
 
+using namespace std;
 
 class Rede {
-private:
-    int quantidadeDeRoteadores;
-    Roteador** rot;
-public:
-    Rede(Roteador** roteadores, int quantidadeDeRoteadores);
-    ~Rede();
-    Roteador* getRoteador(int endereco);
-    void enviar(string texto, Roteador* origem, int destino, int ttl);
-    void passarTempo();
+ public:
+    Rede();
+    virtual ~Rede();
 
-    void imprimir();
+    virtual void adicionar(No* no);
+    virtual No* getNo(int endereco);
+    virtual list<Hospedeiro*>* getHospedeiros();
+    virtual void passarTempo();
+
+    virtual void imprimir();
+
+ private:
+    list<Hospedeiro*>* hospedeiros;
+    list<No*>* nos; //optamos pela estrutura list para armazenar os nós
 };
 
 #endif // REDE_H

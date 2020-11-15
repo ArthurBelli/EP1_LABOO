@@ -1,30 +1,21 @@
 #ifndef ROTEADOR_H
 #define ROTEADOR_H
-#define TAMANHO_FILA 3
 #include "TabelaDeRepasse.h"
-#include "Datagrama.h"
-#include "Fila.h"
+#include "No.h"
 
 using namespace std;
-class TabelaDeRepasse;
 
-class Roteador {
-private:
-    int endereco;
-    Fila* fila;
-    string ultimoDadoRecebido;
-    TabelaDeRepasse* tabela;
-    bool chegouDestino;
-public:
+class Roteador: public No {
+ public:
     Roteador(int endereco);
-    ~Roteador();
-    TabelaDeRepasse* getTabela();
-    Fila* getFila();
-    int getEndereco();
-    void receber(Datagrama* d);
+    virtual ~Roteador();
+
     void processar();
-    string getUltimoDadoRecebido();
-    void imprimir();
+    virtual TabelaDeRepasse* getTabela();
+    virtual void imprimir();
+
+ private:
+    TabelaDeRepasse* tabela;
 };
 
 #endif // ROTEADOR_H

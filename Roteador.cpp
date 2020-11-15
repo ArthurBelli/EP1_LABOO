@@ -1,71 +1,55 @@
-#include "Fila.h"
 #include "Roteador.h"
-#include "Datagrama.h"
-#include "TabelaDeRepasse.h"
-#define TAMANHO_FILA 3
-#include <iostream>
 
-using namespace std;
-
-Roteador::Roteador(int endereco) {
-   this->endereco = endereco;
-   fila = new Fila(TAMANHO_FILA);
-   tabela = new TabelaDeRepasse();
-   chegouDestino = false;
+Roteador::Roteador(int endereco): No(endereco) {
+    tabela = new TabelaDeRepasse();
 }
 
 Roteador::~Roteador() {
-   delete fila;
-   delete tabela;
+    delete tabela;
+}
+
+void Roteador::processar() {
+    try {
+        Segmento* temp = new Segmento(0, 0, "");
+        Datagrama* atual = new Datagrama(0, 0, 0, temp);
+        atual = fila->dequeue();
+        atual->processar();
+        cout << "Roteador " << this->getEndereco() << endl;
+        if (!atual->ativo()) {
+            cout << "\tDestruido por TTL: ";
+            atual->imprimir();
+            delete atual;
+        } else {
+            if (atual->getDestino() == endereco) {
+                cout << "\tRecebido ";
+                atual->imprimir();
+                delete atual;
+            }else {
+                if (tabela->getDestino(atual->getDestino()) != NULL) {
+                    cout << "\tEnviado para " << tabela->getDestino(atual->getDestino())->getEndereco() << " ";
+                    atual->imprimir();
+                    tabela->getDestino(atual->getDestino())->receber(atual);
+                }else {
+                    cout << "\tSemProximo: ";
+                    atual->imprimir();
+                    delete atual;
+                }
+            }
+        }
+    } catch (underflow_error *e) {
+        //cout << "\tFila vazia em " << this->getEndereco() << endl;
+        delete e;
+    }
 }
 
 TabelaDeRepasse* Roteador::getTabela() {
     return tabela;
 }
 
-Fila* Roteador::getFila() {
-    return fila;
-}
-
-int Roteador::getEndereco() {
-    return endereco;
-}
-
-void Roteador::receber(Datagrama* d) {
-    if (!fila->enqueue(d)) cout << "\tFila em " << endereco << " estourou" << endl;
-}
-
-void Roteador::processar() {
-    if (!fila->isEmpty()) {
-        Datagrama *atual = fila->dequeue();
-        atual->processar();
-        cout << "Roteador " << this->getEndereco() << endl;
-        if(!atual->ativo()) {
-            cout << "\tDestruido por TTL: Origem: " << atual->getOrigem() << ", Destino: " << atual->getDestino()
-            << ", TTL: " << atual->getTtl()  << ", " << atual->getDado() << endl;
-            delete atual;
-        }
-        else {
-            if(atual->getDestino() == endereco) {
-                ultimoDadoRecebido = atual->getDado();
-                chegouDestino = true;
-                cout << "\tRecebido: " << ultimoDadoRecebido << endl;
-                delete atual;
-            }
-            else {
-                cout << "\tEnviado para " << tabela->getDestino(atual->getDestino())->getEndereco() << " Origem: " << atual->getOrigem()
-                << ", Destino: " << atual->getDestino() << ", TTL: " << atual->getTtl() << ", " << atual->getDado() << endl;
-                tabela->getDestino(atual->getDestino())->receber(atual);
-            }
-        }
-    }
-}
-
-string Roteador::getUltimoDadoRecebido() {
-    if(fila->isEmpty() && !chegouDestino) return "";
-    else return ultimoDadoRecebido;
-}
-
 void Roteador::imprimir() {
-    //implementar
+    cout << "Sou o roteador" << this->getEndereco() <<  endl;
+    cout << "minha fila:" << endl;
+    fila->imprimir();
+    cout << "minha tabela:" << endl;
+    tabela->imprimir();
 }

@@ -1,33 +1,69 @@
 #include "Rede.h"
-#include "Roteador.h"
-#include <iostream>
-#include <string>
 
-Rede::Rede(Roteador** roteadores, int quantidadeDeRoteadores) {
-    this->quantidadeDeRoteadores = quantidadeDeRoteadores;
-    rot = new Roteador*[quantidadeDeRoteadores];
-    rot = roteadores;
+Rede::Rede() {
+    nos = new list<No*>();
+    hospedeiros = new list<Hospedeiro*>();
 }
 
 Rede::~Rede() {
-    delete[] rot;
+    while (!nos->empty()) {
+        No* atual = nos->back();
+        nos->pop_back();
+        delete atual;
+    }
+    delete nos;
 }
 
-Roteador* Rede::getRoteador(int endereco) {
-    for(int i = 0; i < quantidadeDeRoteadores; i++)
-        if (rot[i]->getEndereco() == endereco) return rot[i];
+void Rede::adicionar(No* no) {
+    list<No*>::iterator i = nos->begin();
+    while (i != nos->end()) {
+        if ((*i) == no) {
+            throw new logic_error("No ja esta incluso na rede");
+            delete no; //diz apenas para nao incluir, mas parece prudente excluir
+        }
+        i++;
+    }
+    nos->push_back(no);
+    Hospedeiro* h = dynamic_cast<Hospedeiro*> (no);
+    if (h != NULL) { //verifica se o no eh hospedeiro, se for da pra converter, se não for retorna null
+        hospedeiros->push_back(h);
+    }
+}
+
+No* Rede::getNo(int endereco) {
+    list<No*>::iterator i = nos->begin();
+    while (i != nos->end()) {
+        if ((*i)->getEndereco() == endereco) return (*i);
+        i++;
+    }
     return NULL;
 }
 
-void Rede::enviar(string texto, Roteador* origem, int destino, int ttl) {
-    Datagrama* msg = new Datagrama(origem->getEndereco(), destino, ttl, texto);
-    origem->receber(msg);
+list<Hospedeiro*>* Rede::getHospedeiros() {
+    if (hospedeiros->empty()) return NULL;
+    else return hospedeiros;
 }
 
 void Rede::passarTempo() {
-    for(int i = 0; i< quantidadeDeRoteadores; i++) rot[i]->processar();
+    list<No*>::iterator i = nos->begin();
+    while (i != nos->end()) { //como fizemos a inclusao dos nós com o metodo push_back, podemos começar a percorrer pelo começo
+        (*i)->processar();
+        i++;
+    }
 }
 
 void Rede::imprimir() {
-    //implementar
+    cout << "nos: " << endl;
+    list<No*>::iterator i = nos->begin();
+    while (i != nos->end()) {
+        cout << (*i)->getEndereco() << endl;
+        i++;
+    }
+    cout << "hospedeiros: " << endl;
+    list<Hospedeiro*>::iterator j = hospedeiros->begin();
+    while (j != hospedeiros->end()) {
+        cout << (*j)->getEndereco() << endl;
+        j++;
+    }
+
 }
